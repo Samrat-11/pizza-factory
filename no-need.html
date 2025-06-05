@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Orders</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8ece5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .popular {
+            max-width: 900px;
+        }
+
+        .popular h1 {
+            font-size: 2.5em;
+            color: #4a2c2a;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .popular p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .popular .pizza-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            width: 600px; /* Fits 3 images: 180 + 220 + 180 + 2 gaps of 30px + padding */
+            margin: 0 auto;
+            scroll-behavior: smooth;
+            padding: 0 15px;
+        }
+
+        .popular .pizza-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .popular .pizza {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            width: 180px;
+        }
+
+        .popular .pizza img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            transition: width 0.3s, height 0.3s;
+        }
+
+        .popular .pizza.centered img {
+            width: 220px;
+            height: 220px;
+        }
+
+        .popular .pizza span {
+            font-size: 1em;
+            color: #4a2c2a;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: none;
+        }
+
+        .popular .pizza.centered span {
+            display: block;
+        }
+
+        @media (max-width: 700px) {
+            .popular .pizza-container {
+                width: 500px; /* Fits 3 images: 140 + 160 + 140 + 2 gaps of 20px + padding */
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .popular .pizza {
+                width: 140px;
+            }
+
+            .popular .pizza img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .popular .pizza.centered {
+                width: 160px;
+            }
+
+            .popular .pizza.centered img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .popular h1 {
+                font-size: 2em;
+            }
+
+            .popular p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="popular">
+        <h1>Popular Orders</h1>
+        <p>Select the best prepared and delicious flavors. We have collected some popular recipes from around the world for you to choose your favorite.</p>
+        <div class="pizza-container">
+            <div class="pizza">
+                <img src="/Pizza-factory/img/pizza-italian.png" alt="Italian Pizza">
+                <span>Italian Pizza</span>
+            </div>
+            <div class="pizza">
+                <img src="/Pizza-factory/img/pizza-pepperoni.png" alt="Pepperoni Pizza">
+                <span>Pepperoni Pizza</span>
+            </div>
+            <div class="pizza centered">
+                <img src="/Pizza-factory/img/pizza-margherita.png" alt="Margherita Pizza">
+                <span>Margherita Pizza</span>
+            </div>
+            <div class="pizza">
+                <img src="/Pizza-factory/img/pizza-vegetarian.png" alt="Vegetarian Pizza">
+                <span>Vegetarian Pizza</span>
+            </div>
+            <div class="pizza">
+                <img src="/Pizza-factory/img/pizza-mushroom.png" alt="Mushroom Pizza">
+                <span>Mushroom Pizza</span>
+            </div>
+            <div class="pizza">
+                <img src="/Pizza-factory/img/pizza-italian.png" alt="Italian Pizza">
+                <span>Italian Pizza</span>
+            </div>
+            <div class="pizza">
+                <img src="/Pizza-factory/img/pizza-pepperoni.png" alt="Pepperoni Pizza">
+                <span>Pepperoni Pizza</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const container = document.querySelector('.pizza-container');
+const pizzas = document.querySelectorAll('.pizza');
+const totalPizzas = pizzas.length;
+
+function updateCenteredPizza() {
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+
+    let closestPizza = null;
+    let minDistance = Infinity;
+
+    pizzas.forEach(pizza => {
+        const rect = pizza.getBoundingClientRect();
+        const pizzaCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(containerCenter - pizzaCenter);
+
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestPizza = pizza;
+        }
+    });
+
+    pizzas.forEach(pizza => pizza.classList.remove('centered'));
+    if (closestPizza) {
+        closestPizza.classList.add('centered');
+    }
+}
+
+function handleInfiniteScroll() {
+    const scrollLeft = container.scrollLeft;
+    const scrollWidth = container.scrollWidth;
+    const clientWidth = container.clientWidth;
+
+    // When reaching the end, jump to the first clone
+    if (scrollLeft >= scrollWidth - clientWidth - 1) {
+        container.scrollLeft = clientWidth + 180 + 30; // Skip to first real pizza (after clones)
+    }
+    // When reaching the start, jump to the last clone
+    else if (scrollLeft <= 0) {
+        container.scrollLeft = scrollWidth - clientWidth * 2 - 180 - 30; // Skip to last real pizza
+    }
+}
+
+function scrollToPizza(pizza) {
+    const containerRect = container.getBoundingClientRect();
+    const pizzaRect = pizza.getBoundingClientRect();
+    const scrollLeft = pizzaRect.left - containerRect.left + container.scrollLeft - (containerRect.width - pizzaRect.width) / 2;
+    container.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+    });
+}
+
+pizzas.forEach(pizza => {
+    pizza.addEventListener('click', () => {
+        scrollToPizza(pizza);
+    });
+});
+
+container.addEventListener('scroll', () => {
+    updateCenteredPizza();
+    handleInfiniteScroll();
+});
+window.addEventListener('resize', updateCenteredPizza);
+updateCenteredPizza(); // Initial call
+
+// Set initial scroll position to center the first real pizza
+container.scrollLeft = 180 + 30; // Start at the first real pizza
+</script>
+</body>
+</html>

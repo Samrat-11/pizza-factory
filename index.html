@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Pizza Factory Slise</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Pizza-factory/css/styles.css">
+
+</head>
+<body>
+    <!-- Load Navbar start -->
+    <div id="navbar-placeholder"></div>
+    <script>
+    fetch("/Pizza-factory/lib/navbar.html")
+        .then(response => response.text())
+        .then(data => {document.getElementById("navbar-placeholder").innerHTML = data;})
+        .catch(error => console.error("Error loading navbar:", error));
+    </script>
+        <!-- Load Navbar end-->
+
+    <!-- ================================ Home Start ================================ -->
+    <section class="home__section" id="home">
+    <div class="home__container container grid">
+      <div class="home__data">
+        <h1 class="home__title">Crispy And <br> Delicious Pizzas</h1>
+        <p class="home__description">
+          Order the best pizzas to end your hunger
+          and make your family moments more
+          memorable, place your order now.
+        </p>
+        <a href="#products" class="button">Order Pizza Now</a>
+        <img src="/Pizza-factory/img/sticker-pizza.svg" alt="sticker" class="home__sticker-1" />
+        <img src="/Pizza-factory/img/sticker-leaf.svg" alt="sticker" class="home__sticker-2" />
+      </div>
+      <div class="home__images">
+        <img src="/Pizza-factory/img/home-pizza.png" alt="pizza" class="home__pizza" />
+        <img src="/Pizza-factory/img/home-board.png" alt="board" class="home__board" />
+        <img src="/Pizza-factory/img/home-leaf-1.png" alt="ingredient" class="home__ingredient home__leaf-1" />
+        <img src="/Pizza-factory/img/home-leaf-2.png" alt="ingredient" class="home__ingredient home__leaf-2" />
+        <img src="/Pizza-factory/img/home-pepperoni.png" alt="ingredient" class="home__ingredient home__pepperoni" />
+        <img src="/Pizza-factory/img/home-mushroom.png" alt="ingredient" class="home__ingredient home__mushroom" />
+        <img src="/Pizza-factory/img/home-olive.png" alt="ingredient" class="home__ingredient home__olive" />
+        <img src="/Pizza-factory/img/home-tomato.png" alt="ingredient" class="home__ingredient home__tomato" />
+      </div>
+    </div>
+    </section>
+  <!-- ================================ Home End ================================ -->
+  <!-- ================================ About Start ================================ -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="image-side">
+        <img src="/Pizza-factory/img/about-img.png" alt="Pizza on Board" />
+      </div>
+      <div class="text-side">
+        <h2>Learn More About Our History</h2>
+        <p>
+          The secret to success is the best ingredients to make a better pizza.
+          Today we strive for perfection, just as we have been doing for 15 years when
+          we first opened the pizzeria in Lima - Peru.
+        </p>
+        <div class="button-container">
+          <a href="#" class="btn">The Best Pizzas</a>
+          <img src="/Pizza-factory/img/sticker-pizza.svg" alt="Pizza Sticker" class="pizza-sticker"/>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================================ About End ================================ -->
+  <!-- ================================ Recipe Start ================================ -->
+   <section class="recipe-section">
+    <h1>Our Secret Recipes<br>Fresh And Natural Ingredients</h1>
+
+    <div class="recipe-content">
+      <div class="recipe-list">
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-flour.png" alt="Flour"/>
+          <div>
+            <h2>Flour</h2>
+            <p>The best wheat from the field for the best flour.</p>
+          </div>
+        </div>
+
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-cheese-2.png" alt="Cheese"/>
+          <div>
+            <h2>Cheese</h2>
+            <p>Indulge in cheese for a healthy future.</p>
+          </div>
+        </div>
+
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-sauces.png" alt="Sauces"/>
+          <div>
+            <h2>Sauces</h2>
+            <p>Add a touch of salsa to your life and it will taste better.</p>
+          </div>
+        </div>
+
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-tomato.png" alt="Vegetables"/>
+          <div>
+            <h2>Vegetables</h2>
+            <p>Vegetables full of the essence of nature and organic.</p>
+          </div>
+        </div>
+
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-meat-2.png" alt="Meats"/>
+          <div>
+            <h2>Meats</h2>
+            <p>The best fresh meats for your health.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-image">
+        <img src="/Pizza-factory/img/recipe-pizza.png" alt="Pizza"/>
+      </div>
+    </div>
+<!-- Burger slide -->
+    <div class="recipe-content" style="display: flex; flex-direction: row-reverse;">
+      <div class="recipe-list">
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-bread.png" alt="Bread"/>
+          <div>
+            <h2>Bread</h2>
+            <p>Fresh bread, baked to perfection.</p>
+          </div>
+        </div>
+
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-cheese.png" alt="Cheese"/>
+          <div>
+            <h2>Cheese</h2>
+            <p>Cheese for a fantastic and healthy future.</p>
+          </div>
+        </div>
+
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-meat.png" alt="Meat"/>
+          <div>
+            <h2>Meat</h2>
+            <p>100% pure meat, big and meaty.</p>
+          </div>
+        </div>
+
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-vegetable.png" alt="Vegetables"/>
+          <div>
+            <h2>Vegetables</h2>
+            <p>Vegetables full of the essence of nature and organic.</p>
+          </div>
+        </div>
+
+        <div class="recipe-item">
+          <img src="/Pizza-factory/img/recipe-sauces.png" alt="Sauces"/>
+          <div>
+            <h2>Sauces</h2>
+            <p>Fresh sauces, delicious for the palate.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-image">
+        <img src="/Pizza-factory/img/recipe-burger.png" alt="Pizza"/>
+      </div>
+    </div>
+  </section>
+  <!-- ================================ Recipe End ================================ -->
+  <!-- ================================ Products Start ================================ -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+</head>
+<body>
+  <section class="products" id="products">
+    <h2 class="products-title">Most Devoured<br>Burgers And Pizzas</h2>
+    <div class="products-container">
+      <div class="product-card">
+        <img src="/Pizza-factory/img/burger-chicken.png" alt="Burger" class="product-image" />
+        <div class="product-name">Chicken<br>Burger</div>
+        <div class="product-price">$6</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="/Pizza-factory/img/burger-meat.png" alt="Burger" class="product-image" />
+        <div class="product-name">Meat<br>Burger</div>
+        <div class="product-price">$10</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+      
+      <div class="product-card">
+        <img src="/Pizza-factory/img/burger-grill.png" alt="Burger" class="product-image" />
+        <div class="product-name">Grill<br>Burger</div>
+        <div class="product-price">$12</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="/Pizza-factory/img/burger-classic.png" alt="Burger" class="product-image" />
+        <div class="product-name">Classic<br>Burger</div>
+        <div class="product-price">$8</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="/Pizza-factory/img/burger-big.png" alt="Burger" class="product-image" />
+        <div class="product-name">Big<br>Burger</div>
+        <div class="product-price">$15</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="/Pizza-factory/img/pizza-vegetarian.png" alt="Pizza" class="product-image" />
+        <div class="product-name">Vegetarian<br>Pizza</div>
+        <div class="product-price">$15</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="/Pizza-factory/img/pizza-pepperoni.png" alt="Pizza" class="product-image" />
+        <div class="product-name">Pepperoni<br>Pizza</div>
+        <div class="product-price">$12</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="/Pizza-factory/img/pizza-margherita.png" alt="Pizza" class="product-image" />
+        <div class="product-name">Margherita<br>Pizza</div>
+        <div class="product-price">$15</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="/Pizza-factory/img/pizza-mushroom.png" alt="Pizza" class="product-image" />
+        <div class="product-name">Mushroom<br>Pizza</div>
+        <div class="product-price">$17</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="/Pizza-factory/img/pizza-italian.png" alt="Pizza" class="product-image" />
+        <div class="product-name">Italian<br>Pizza</div>
+        <div class="product-price">$10</div>
+        <button class="product-btn">
+          <i class="ri-shopping-bag-3-fill"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+  <!-- ================================ Products End ================================ -->
+  <!-- ================================ Contact Start ================================ -->
+  <div class="contact-container">
+    <div class="contact-left-section">
+      <img src="/Pizza-factory/img/contact-pizza.png" alt="Pizza Delivery" />
+      <img src="/Pizza-factory/img/contact-man.png" alt="Pizza Delivery" />
+    </div>
+    <div class="contact-right-section">
+      <h2>Contact Now</h2>
+      <div class="contact-details">
+        <div class="contact-write-us">
+          <h3>Write Us</h3>
+          <div class="contact-icons">
+            <i class="fab fa-whatsapp"></i>
+            <i class="fas fa-envelope"></i>
+            <i class="fab fa-telegram-plane"></i>
+          </div>
+        </div>
+        <div class="contact-delivery">
+          <h3>Delivery</h3>
+          <p>+91-9640521971<br>+91-9182714776</p>
+        </div>
+      </div>
+      <div class="contact-location">
+        <h3>Location</h3>
+        <p>Madhapur, Hyderabad<br>Ayyappa society, Pin code 500081, Main branch.</p>
+        <a href="#" class="contact-map-link"><i class="fas fa-map-marker-alt"></i> View On Map</a>
+      </div>
+    </div>
+  </div>
+  <!-- ================================ Contact End ================================ -->
+   <script src="/Pizza-factory/js/main.js"></script>
+</body>
+</html>
